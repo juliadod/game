@@ -1,5 +1,5 @@
 import pygame
-
+from levelButton import LevelButton
 pygame.init()
 
 size = [1280, 720]
@@ -15,6 +15,9 @@ text_rect = text.get_rect(centerx = screen.get_rect().centerx,
 
 print(screen.get_rect().width)
 
+button = LevelButton([50, 150], 150, 1)
+
+
 done = False
 while not done:
     clock.tick(60)
@@ -23,8 +26,10 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
 
+
     screen.fill((40, 35, 56))
 
     screen.blit(text, text_rect )
 
+    button.draw(screen)
     pygame.display.update()
