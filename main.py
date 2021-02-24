@@ -20,15 +20,22 @@ clock.tick(60)
 
 done = False
 while not done:
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
 
+        if event.type == pygame.MOUSEMOTION:
+            button.focus(event.pos)
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            button.click(event.pos)
 
     screen.fill((40, 35, 56))
 
     screen.blit(text, text_rect )
 
     button.draw(screen)
+
+    pygame.time.wait(5)
+
     pygame.display.update()
