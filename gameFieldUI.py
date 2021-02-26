@@ -2,6 +2,7 @@ import pygame
 from textLabel import TextLabel
 from bigStars import BigStars
 import colors
+from gameField import GameField
 
 class GameFieldUI:
 
@@ -13,6 +14,7 @@ class GameFieldUI:
         self.best_score    = TextLabel([97 , 200], [256, 60], "Лучший счет")
         self.steps         = TextLabel([97 , 280], [256, 60], "Шаги")
         self.big_stars     = BigStars(0)
+        self.game_field    = GameField((28, 378), 394)
 
     def draw(self, surface):
         surface.fill(colors.DARK_BLUE)
@@ -20,5 +22,6 @@ class GameFieldUI:
         self.best_score.draw(surface)
         self.steps.draw(surface)
         surface.blit(GameFieldUI.button_back, [10 , 14,  78, 60])
-        surface.blit(GameFieldUI.sound      , [362, 14, 78 , 60])
+        surface.blit(GameFieldUI.sound      , [362, 14,  78, 60])
         self.big_stars.draw(surface, [150, 92, 150, 93])
+        self.game_field.draw(surface)
