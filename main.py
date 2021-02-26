@@ -1,8 +1,11 @@
 import pygame
+import json
+
 from levelButton import LevelButton
 from levelSelectionUI import LevelSelectionUI
 from gameFieldUI import GameFieldUI
 import colors
+from level import Level
 
 pygame.init()
 
@@ -14,8 +17,16 @@ clock = pygame.time.Clock()
 
 clock.tick(60)
 
+input = open('resources/levels/level 1.json', 'r')
+
+raw_data = input.read()
+
+data = json.loads(raw_data)
+
+level = Level.loadFromDict(data)
+
 level_selection_UI = LevelSelectionUI()
-game_field_UI = GameFieldUI()
+game_field_UI = GameFieldUI(level)
 
 surface1 = pygame.Surface([450, 800])
 surface2 = pygame.Surface([450, 800])

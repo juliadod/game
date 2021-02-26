@@ -1,0 +1,21 @@
+{
+    "name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c 1",
+    "best score": 0,
+    "cars": [
+        {
+            "name": "main",
+            "x": 1,
+            "y": 0,
+            "state": "V",
+            "image": "resources/cars/2 tiles/red.png"
+        },
+        {
+            "name": "2",
+            "x": 1,
+            "y": 3,
+            "state": "H",
+            "image": "resources/cars/2 tiles/red.png"
+        }
+    ],
+    "obstacles": []
+}
