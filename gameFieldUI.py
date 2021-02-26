@@ -16,6 +16,18 @@ class GameFieldUI:
         self.big_stars     = BigStars(0)
         self.game_field    = GameField((28, 378), 394, level)
 
+    def mouse_event(self, event):
+        if pygame.Rect([10 , 14,  78, 60]).collidepoint(event.pos):
+            # нажата кнопка назад
+            pass
+
+        if pygame.Rect([362, 14,  78, 60]).collidepoint(event.pos):
+            # нажата кнопка звука
+            pass
+
+        self.game_field.mouse_event(event)
+
+
 
     def draw(self, surface):
         surface.fill(colors.DARK_BLUE)

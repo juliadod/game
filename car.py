@@ -14,13 +14,14 @@ class Car:
         if state == "H":
             self.image = pygame.transform.rotozoom(self.image, 90, 1)
 
+    def rect(self):
+        width, height = self.image.get_width(), self.image.get_height()
+        return pygame.Rect(self.x, self.y, width, height)
 
     def click(self, click_pos):
-        x = click_pos[0]
-        y = click_pos[1]
+        x, y = click_pos
 
-        rect = self.image.get_rect()
-        if rect.collidepoint([x, y]):
+        if self.rect().collidepoint([x, y]):
             return True
 
         return False
@@ -28,6 +29,7 @@ class Car:
 
     def draw(self, surface):
         surface.blit(self.image, [self.x, self.y])
+        pygame.draw.rect(surface, (255, 0, 0), self.rect(), 1)
 
 
     @property
