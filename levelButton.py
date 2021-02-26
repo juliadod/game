@@ -1,12 +1,13 @@
 import pygame
 
 from stars import Stars
+import colors
 
 pygame.init()
 
 class LevelButton:
 
-    rect_image = pygame.image.load('rect_image.png')
+    rect_image = pygame.image.load('resources\\images\\rect.png')
 
     font = pygame.font.SysFont('Roboto', 70)
 
@@ -15,7 +16,7 @@ class LevelButton:
         self.y    = position[1]
         self.size = size
         self.number = number
-        self.number_image = LevelButton.font.render(str(number), 1, (240, 143, 40))
+        self.number_image = LevelButton.font.render(str(number), 1, colors.ORANGE)
 
         self.star = Stars(0)
 
@@ -27,7 +28,7 @@ class LevelButton:
 
     def draw(self, surface):
 
-        #   pygame.draw.rect(surface, (240, 143, 40), [self.x, self.y, self.size, self.size], fill, 44)
+        #   pygame.draw.rect(surface, colors.ORANGE, [self.x, self.y, self.size, self.size], fill, 44)
 
         if self.fullness >= 2:
             self.fullness -= 1
@@ -38,7 +39,7 @@ class LevelButton:
         if self.fullness >= self.size // 2:
             self.fullness = self.size // 2
 
-        pygame.draw.rect(surface, (240, 143, 40), [self.x, self.y, self.size, self.size], self.fullness, 44)
+        pygame.draw.rect(surface, colors.ORANGE, [self.x, self.y, self.size, self.size], self.fullness, 44)
 
         surface.blit(LevelButton.rect_image, [self.x, self.y, self.size, self.size])
 
