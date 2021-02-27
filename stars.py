@@ -2,8 +2,8 @@ import pygame
 
 class Stars:
 
-    hollow_star = pygame.image.load('resources\\images\\hollow_star.png')
-    filled_star = pygame.image.load('resources\\images\\filled_star.png')
+    hollow_star = pygame.image.load('resources/images/hollow_star.png')
+    filled_star = pygame.image.load('resources/images/filled_star.png')
 
     def __init__(self, score):
         self.score = score

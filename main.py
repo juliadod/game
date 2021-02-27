@@ -6,6 +6,9 @@ from levelSelectionUI import LevelSelectionUI
 from gameFieldUI import GameFieldUI
 import colors
 from level import Level
+from sound import Sound
+
+
 
 def load_level(level_name):
     input    = open('resources/levels/' + level_name + '.json', 'r')
@@ -27,6 +30,8 @@ clock.tick(300)
 level_selection_UI = LevelSelectionUI()
 game_field_UI      = None
 
+Sound.toggle_music()
+
 done = False
 while not done:
     for event in pygame.event.get():
@@ -40,6 +45,12 @@ while not done:
                result = game_field_UI.mouse_event(event)
                if result == 'exit':
                    game_field_UI = None
+
+               if result == 'sound':
+                   Sound.sound_on = not Sound.sound_on
+                   Sound.toggle_music()
+
+
            else:
                level_selection_UI.mouse_event(event)
 

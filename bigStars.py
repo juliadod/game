@@ -4,8 +4,8 @@ import colors
 
 class BigStars:
 
-    big_hollow_star = pygame.image.load('resources\\images\\big_hollow_star.png')
-    big_filled_star = pygame.image.load('resources\\images\\big_filled_star.png')
+    big_hollow_star = pygame.image.load('resources/images/big_hollow_star.png')
+    big_filled_star = pygame.image.load('resources/images/big_filled_star.png')
 
     def __init__(self, score):
         self.score = score

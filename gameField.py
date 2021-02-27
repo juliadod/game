@@ -1,6 +1,7 @@
 import pygame
 import colors
 from level import Level
+from sound import Sound
 
 class GameField:
 
@@ -43,6 +44,7 @@ class GameField:
                         if self.active_car.rect().colliderect(car.rect()) or \
                           not self.rect().contains(self.active_car.rect()):
                             self.active_car.x -= event.rel[0]
+                            Sound.play('impact sound')
 
            else:
                 self.active_car.y += event.rel[1]
@@ -52,13 +54,14 @@ class GameField:
                         if self.active_car.rect().colliderect(car.rect()) or \
                            not self.rect().contains(self.active_car.rect()):
                             self.active_car.y -= event.rel[1]
+                            Sound.play('impact sound')
 
         for car in self.level.cars:
             if self.active_car \
                and self.active_car.name == 'main' \
                and self.active_car.rect().colliderect(self.win_trigger):
                pass
-               
+
         return False
 
     def draw(self, surface):

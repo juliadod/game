@@ -5,9 +5,8 @@ import colors
 from gameField import GameField
 
 class GameFieldUI:
-
-    button_back = pygame.image.load('resources\\images\\left_arrow.png')
-    sound = pygame.image.load('resources\\images\\sound.png')
+    button_back_image = pygame.image.load('resources/images/left_arrow.png')
+    sound_image = pygame.image.load('resources/images/sound.png')
 
     def __init__(self, level):
         self.current_level = TextLabel([97 , 14], [256, 60] , 'Уровень 1')
@@ -26,7 +25,7 @@ class GameFieldUI:
 
             if pygame.Rect([362, 14,  78, 60]).collidepoint(event.pos):
                 # нажата кнопка звука
-                pass
+                return 'sound'
 
         if self.game_field.mouse_event(event):
             self.score += 1
@@ -40,8 +39,8 @@ class GameFieldUI:
         self.best_score.draw(surface)
         self.steps.draw(surface)
 
-        surface.blit(GameFieldUI.button_back, [10 , 14,  78, 60])
-        surface.blit(GameFieldUI.sound      , [362, 14,  78, 60])
+        surface.blit(GameFieldUI.button_back_image, [10 , 14,  78, 60])
+        surface.blit(GameFieldUI.sound_image      , [362, 14,  78, 60])
 
         self.big_stars.draw(surface, [150, 92, 150, 93])
 

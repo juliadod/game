@@ -4,7 +4,7 @@ import colors
 class TextLabel:
 
     font = pygame.font.SysFont('Roboto', 40)
-    long_rect = pygame.image.load('resources\\images\\long_rect.png')
+    long_rect = pygame.image.load('resources/images/long_rect.png')
 
     def __init__(self, position, size, text):
         self.x    = position[0]

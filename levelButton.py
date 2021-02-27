@@ -7,7 +7,7 @@ pygame.init()
 
 class LevelButton:
 
-    rect_image = pygame.image.load('resources\\images\\rect.png')
+    rect_image = pygame.image.load('resources/images/rect.png')
 
     font = pygame.font.SysFont('Roboto', 70)
 

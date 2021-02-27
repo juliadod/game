@@ -10,7 +10,7 @@ class LevelSelectionUI:
 
         font = pygame.font.Font('C:\Windows\Fonts\constan.ttf', 45)
         self.text = font.render('Выберите уровень', True, colors.ORANGE)
-        self.car_image = pygame.image.load('resources\\images\\car.png')
+        self.car_image = pygame.image.load('resources/images/car.png')
 
         self.level_buttons = []
 
