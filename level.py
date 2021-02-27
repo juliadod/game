@@ -35,7 +35,6 @@ class Level:
         level.best_score = source['best score']
 
         for car in source['cars']:
-            print(car['image'])
             level.cars.append(Car(car['name'],
                                   (car['x'], car['y']),
                                   pygame.image.load(car['image']),

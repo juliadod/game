@@ -28,8 +28,9 @@ class LevelSelectionUI:
         if event.type == pygame.MOUSEBUTTONDOWN:
             for button in self.level_buttons:
                 if(button.click(event.pos)):
-                    print(button.number)
+                    return button.number
 
+        return None
 
     def draw(self, surface):
         surface.fill(colors.DARK_BLUE)

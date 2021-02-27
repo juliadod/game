@@ -10,23 +10,27 @@ class GameFieldUI:
     sound = pygame.image.load('resources\\images\\sound.png')
 
     def __init__(self, level):
-        self.current_level = TextLabel([97 , 14], [256, 60], 'Уровень 1')
+        self.current_level = TextLabel([97 , 14], [256, 60] , 'Уровень 1')
         self.best_score    = TextLabel([97 , 200], [256, 60], 'Лучший счет')
         self.steps         = TextLabel([97 , 280], [256, 60], 'Шаги')
         self.big_stars     = BigStars(0)
         self.game_field    = GameField((28, 378), 394, level)
+        self.score         = 0
+
 
     def mouse_event(self, event):
-        if pygame.Rect([10 , 14,  78, 60]).collidepoint(event.pos):
-            # нажата кнопка назад
-            pass
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if pygame.Rect([10 , 14,  78, 60]).collidepoint(event.pos):
+                # нажата кнопка назад
+                return 'exit'
 
-        if pygame.Rect([362, 14,  78, 60]).collidepoint(event.pos):
-            # нажата кнопка звука
-            pass
+            if pygame.Rect([362, 14,  78, 60]).collidepoint(event.pos):
+                # нажата кнопка звука
+                pass
 
-        self.game_field.mouse_event(event)
-
+        if self.game_field.mouse_event(event):
+            self.score += 1
+            self.steps.set_text('Шаги ' + str(self.score))
 
 
     def draw(self, surface):

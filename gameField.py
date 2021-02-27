@@ -18,6 +18,8 @@ class GameField:
 
         self.active_car = None
 
+        self.win_trigger = pygame.Rect([self.x + 5 * 66, self.y + 2 * 66 - 1, 66, 66])
+
     def rect(self):
         return pygame.Rect([self.x, self.y, self.size, self.size])
 
@@ -26,6 +28,7 @@ class GameField:
             for car in self.level.cars:
                 if car.click(event.pos):
                     self.active_car = car
+                    return True
 
         if event.type == pygame.MOUSEBUTTONUP:
             self.active_car = None
@@ -50,7 +53,13 @@ class GameField:
                            not self.rect().contains(self.active_car.rect()):
                             self.active_car.y -= event.rel[1]
 
-
+        for car in self.level.cars:
+            if self.active_car \
+               and self.active_car.name == 'main' \
+               and self.active_car.rect().colliderect(self.win_trigger):
+               pass
+               
+        return False
 
     def draw(self, surface):
 
@@ -60,3 +69,5 @@ class GameField:
 
         for car in self.level.cars:
             car.draw(surface)
+
+        pygame.draw.rect(surface, (0, 255, 0), self.win_trigger, 1)
