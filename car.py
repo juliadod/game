@@ -29,7 +29,7 @@ class Car:
 
     def draw(self, surface):
         surface.blit(self.image, [self.x, self.y])
-        pygame.draw.rect(surface, (255, 0, 0), self.rect(), 1)
+        #pygame.draw.rect(surface, (255, 0, 0), self.rect(), 1)
 
 
     @property

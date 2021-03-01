@@ -7,9 +7,10 @@ from gameField import GameField
 class GameFieldUI:
     button_back_image = pygame.image.load('resources/images/left_arrow.png')
     sound_image = pygame.image.load('resources/images/sound.png')
+    #level_number = level_selection_UI.mouse_event(event)
 
     def __init__(self, level):
-        self.current_level = TextLabel([97 , 14], [256, 60] , 'Уровень 1')
+        self.current_level = TextLabel([97 , 14], [256, 60] , str(level.name))  # +  str(level_number))
         self.best_score    = TextLabel([97 , 200], [256, 60], 'Лучший счет')
         self.steps         = TextLabel([97 , 280], [256, 60], 'Шаги')
         self.big_stars     = BigStars(0)
@@ -27,7 +28,13 @@ class GameFieldUI:
                 # нажата кнопка звука
                 return 'sound'
 
-        if self.game_field.mouse_event(event):
+        result = self.game_field.mouse_event(event)
+
+        if result == 'win':
+            self.big_stars.score = 3
+            return 'win'
+
+        if result:
             self.score += 1
             self.steps.set_text('Шаги ' + str(self.score))
 

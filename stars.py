@@ -12,7 +12,7 @@ class Stars:
     def draw(self, surface, rect):
 
         if (self.score >= 1):
-            surface.blit(changColor(Stars.filled_star, (0, 255, 0)), [rect[0], rect[1]])
+            surface.blit(Stars.filled_star, [rect[0], rect[1]])
         else:
             surface.blit(Stars.hollow_star, [rect[0], rect[1]])
 

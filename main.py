@@ -9,7 +9,6 @@ from level import Level
 from sound import Sound
 
 
-
 def load_level(level_name):
     input    = open('resources/levels/' + level_name + '.json', 'r')
     raw_data = input.read()
@@ -32,6 +31,9 @@ game_field_UI      = None
 
 Sound.toggle_music()
 
+finished_levels = {}
+
+level_number = None
 done = False
 while not done:
     for event in pygame.event.get():
@@ -50,16 +52,19 @@ while not done:
                    Sound.sound_on = not Sound.sound_on
                    Sound.toggle_music()
 
+               if result == 'win':
+                   finished_levels[level_number] = True
+                   level_selection_UI.level_buttons[level_number - 1].star.score = 3
 
            else:
                level_selection_UI.mouse_event(event)
 
-           level_number = level_selection_UI.mouse_event(event)
-           if level_number:
-               try:
+               level_number = level_selection_UI.mouse_event(event)
+               if level_number :
+                   #try:
                    game_field_UI = GameFieldUI(load_level('level ' + str(level_number)))
-               except FileNotFoundError:
-                   pass
+                   #except FileNotFoundError:
+
 
 
     if game_field_UI:

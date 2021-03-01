@@ -13,7 +13,7 @@ class BigStars:
 
     def draw(self, surface, rect):
         if (self.score >= 1):
-            surface.blit(changColor(big_filled_star, colors.ORANGE), [rect[0], rect[1] + 35])
+            surface.blit(BigStars.big_filled_star, [rect[0], rect[1] + 35])
         else:
             surface.blit(BigStars.big_hollow_star, [rect[0], rect[1] + 35])
 

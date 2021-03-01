@@ -60,7 +60,7 @@ class GameField:
             if self.active_car \
                and self.active_car.name == 'main' \
                and self.active_car.rect().colliderect(self.win_trigger):
-               pass
+               return 'win'
 
         return False
 
