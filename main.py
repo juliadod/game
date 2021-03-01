@@ -1,5 +1,4 @@
 import pygame
-import json
 
 from levelButton import LevelButton
 from levelSelectionUI import LevelSelectionUI
@@ -7,14 +6,6 @@ from gameFieldUI import GameFieldUI
 import colors
 from level import Level
 from sound import Sound
-
-
-def load_level(level_name):
-    input    = open('resources/levels/' + level_name + '.json', 'r')
-    raw_data = input.read()
-    data     = json.loads(raw_data)
-    level    = Level.loadFromDict(data)
-    return level
 
 pygame.init()
 
@@ -62,10 +53,8 @@ while not done:
                level_number = level_selection_UI.mouse_event(event)
                if level_number :
                    #try:
-                   game_field_UI = GameFieldUI(load_level('level ' + str(level_number)))
+                   game_field_UI = GameFieldUI(Level().load_from_json('resources/levels/level ' + str(level_number) + '.json'))
                    #except FileNotFoundError:
-
-
 
     if game_field_UI:
         game_field_UI.draw(screen)

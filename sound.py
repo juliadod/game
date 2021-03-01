@@ -16,8 +16,6 @@ class Sound:
             pygame.mixer.music.play(-1)
             Sound.music_on = True
 
-
-
     def play(sound_name):
         if Sound.sound_on:
             Sound.sounds[sound_name].play()

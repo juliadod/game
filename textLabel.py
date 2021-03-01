@@ -3,7 +3,7 @@ import colors
 
 class TextLabel:
 
-    font = pygame.font.SysFont('Roboto', 40)
+    font      = pygame.font.SysFont('Roboto', 40)
     long_rect = pygame.image.load('resources/images/long_rect.png')
 
     def __init__(self, position, size, text):
@@ -13,7 +13,9 @@ class TextLabel:
         self.text = text
         self.text_image = TextLabel.font.render(str(text), 1, colors.ORANGE)
 
+
     def set_text(self, text):
+        self.text = text
         self.text_image = TextLabel.font.render(str(text), 1, colors.ORANGE)
 
     def draw(self, surface):

@@ -1,7 +1,8 @@
+import json
+
 import pygame
 
 from car import Car
-
 
 class Level:
 
@@ -21,21 +22,26 @@ class Level:
         for car in self.cars:
             cars.append(vars(car))
 
-        serialised['cars']       = cars
+        serialised['cars'] = cars
 
         return serialised
 
+    def save_to_json(self):
+        #print(self.cars[0].__dict__())
+        return json.dumps(vars(self), indent = 4)
 
-    def loadFromDict(source):
-        level = Level()
+    def load_from_json(self, source):
+        input    = open(source, 'r')
+        raw_data = input.read()
+        json_data     = json.loads(raw_data)
 
-        level.name       = source['name']
-        level.best_score = source['best score']
+        self.name       = json_data['name']
+        self.best_score = json_data['best score']
 
-        for car in source['cars']:
-            level.cars.append(Car(car['name'],
-                                  (car['x'], car['y']),
-                                  pygame.image.load(car['image']),
-                                  car['state']))
-                                  
-        return level
+        for car in json_data['cars']:
+            self.cars.append(Car(car['name'],
+                                (car['x'], car['y']),
+                                car['image'],
+                                car['state']))
+
+        return self

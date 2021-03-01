@@ -7,9 +7,8 @@ import colors
 class LevelSelectionUI:
 
     def __init__(self):
-
-        font = pygame.font.Font('C:\Windows\Fonts\constan.ttf', 45)
-        self.text = font.render('Выберите уровень', True, colors.ORANGE)
+        font = pygame.font.SysFont('constan', 45)
+        self.text_image = font.render('Выберите уровень', True, colors.ORANGE)
         self.car_image = pygame.image.load('resources/images/car.png')
 
         self.level_buttons = []
@@ -38,7 +37,7 @@ class LevelSelectionUI:
         surface.blit(self.car_image, (self.car_image.get_rect(centerx = surface.get_rect().centerx,
                                                               bottom = surface.get_rect().bottom )))
 
-        surface.blit(self.text, self.text.get_rect(centerx = surface.get_rect().centerx,
+        surface.blit(self.text_image, self.text_image.get_rect(centerx = surface.get_rect().centerx,
                                                      y = 0.03*surface.get_height()))
 
         for button in self.level_buttons:

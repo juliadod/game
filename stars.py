@@ -8,7 +8,6 @@ class Stars:
     def __init__(self, score):
         self.score = score
 
-
     def draw(self, surface, rect):
 
         if (self.score >= 1):

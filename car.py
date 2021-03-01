@@ -4,12 +4,13 @@ import colors
 
 class Car:
 
-    def __init__(self, name, position, image, state):
-        self.name   = name
-        self.x      = position[0]
-        self.y      = position[1]
-        self.state  = state
-        self.image  = image
+    def __init__(self, name, position, image_path, state):
+        self.name       = name
+        self.x          = position[0]
+        self.y          = position[1]
+        self.state      = state
+        self.image_path = image_path
+        self.image      = pygame.image.load(image_path)
 
         if state == "H":
             self.image = pygame.transform.rotozoom(self.image, 90, 1)
@@ -31,7 +32,6 @@ class Car:
         surface.blit(self.image, [self.x, self.y])
         #pygame.draw.rect(surface, (255, 0, 0), self.rect(), 1)
 
-
     @property
     def __dict__(self):
         serialised = {}
@@ -39,7 +39,6 @@ class Car:
         serialised['name']   = self.name
         serialised['x']      = self.x
         serialised['y']      = self.y
-        serialised['length'] = self.length
-        serialised['state']  = int(self.state)
+        serialised['state']  = self.state
 
         return serialised

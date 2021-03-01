@@ -15,6 +15,7 @@ class GameFieldUI:
         self.steps         = TextLabel([97 , 280], [256, 60], 'Шаги')
         self.big_stars     = BigStars(0)
         self.game_field    = GameField((28, 378), 394, level)
+        self.level         = level
         self.score         = 0
 
 

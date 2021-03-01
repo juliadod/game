@@ -25,7 +25,6 @@ class LevelButton:
         self.time_when_get_focussed = None
 
     def draw(self, surface):
-
         #   pygame.draw.rect(surface, colors.ORANGE, [self.x, self.y, self.size, self.size], fill, 44)
 
         if self.fullness >= 2:
