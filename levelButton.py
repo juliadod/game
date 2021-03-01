@@ -7,7 +7,7 @@ pygame.init()
 
 class LevelButton:
 
-    rect_image = pygame.image.load('resources\\images\\rect.png')
+    rect_image = pygame.image.load('resources/images/rect.png')
 
     font = pygame.font.SysFont('Roboto', 70)
 
@@ -23,8 +23,6 @@ class LevelButton:
         self.fullness               = 1
         self.is_focussed            = False
         self.time_when_get_focussed = None
-
-
 
     def draw(self, surface):
 
