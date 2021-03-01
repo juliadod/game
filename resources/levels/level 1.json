@@ -1,0 +1,70 @@
+{
+    "name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c 1",
+    "best score": 0,
+    "cars": [
+        {
+            "name": "main",
+            "x": 0,
+            "y": 2,
+            "state": "H",
+            "image": "resources/cars/2 tiles/raspberry.png"
+        },
+        {
+            "name": "2",
+            "x": 2 ,
+            "y": 0,
+            "state": "H",
+            "image": "resources/cars/2 tiles/blue.png"
+        },
+        {
+            "name": "3",
+            "x": 4,
+            "y": 0,
+            "state": "V",
+            "image": "resources/cars/3 tiles/dark_green.png"
+        },
+        {
+            "name": "4",
+            "x": 5,
+            "y": 1,
+            "state": "v",
+            "image": "resources/cars/2 tiles/purple.png"
+        },
+        {
+            "name": "5",
+            "x": 3,
+            "y": 4,
+            "state": "H",
+            "image": "resources/cars/3 tiles/red.png"
+        },
+        {
+            "name": "6",
+            "x": 0,
+            "y": 4,
+            "state": "V",
+            "image": "resources/cars/2 tiles/cyan.png"
+        },
+        {
+            "name": "7",
+            "x": 2,
+            "y": 2,
+            "state": "V",
+            "image": "resources/cars/2 tiles/yellow.png"
+        },
+        {
+            "name": "8",
+            "x": 3,
+            "y": 3,
+            "state": "H",
+            "image": "resources/cars/2 tiles/orange.png"
+        },
+        {
+            "name": "9",
+            "x": 3,
+            "y": 5,
+            "state": "H",
+            "image": "resources/cars/2 tiles/green.png"
+        }
+    ],
+    "obstacles": []
+}
